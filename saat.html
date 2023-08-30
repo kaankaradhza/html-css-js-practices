@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <title>ByNoGame Javascript Saat</title>
+    
+<style>
+  body {
+  background: black;
+}
+
+.clock {
+  position: relative;
+  text-align: center;
+  color: #e98208;
+  font-size: 60px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  letter-spacing: 7px;
+}
+
+.text {
+  position: relative;
+  text-align: center;
+  color: #e98208;
+  font-size: 50px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  letter-spacing: 7px;
+}
+
+
+ img {
+     margin-top: 120px;
+     width: 17%;
+}
+
+</style>
+  </head>
+  <body class="bg-dark">
+    <div class="text-center mt-5">
+      <h1 class="text">ByNoGame</h1>
+      <div class="text text-center">
+        Merhaba, <strong><span id="myName"></span></strong>! Hoş geldin!
+      </div>
+      <div id="myClock" class="clock" onload="showTime()"></div>
+      
+    <script>
+      let name=prompt("Enter your name: ")
+      let span=document.getElementById("myName").innerText=name
+      var days = [
+      "Pazar",
+      "Pazartesi",
+      "Salı",
+      "Çarşamba",
+      "Perşembe",
+      "Cuma",
+      "Cumartesi"
+    ]
+      function showTime(){
+        let today=new Date()
+        let h =today.getHours()
+        let m =today.getMinutes()
+        let s =today.getSeconds()
+        h= checkTime(h)
+        m = checkTime(m);
+        s = checkTime(s);
+        let day =today.getDay()
+        let d=days[day]
+        document.getElementById("myClock").innerHTML=h + ":"+m+":"+s+" "+d;
+        setTimeout(showTime, 1000);
+      }
+      showTime()
+      
+      function checkTime(i) {
+        if (i < 10) {i = "0" + i};  
+        return i;
+}
+     
+      
+    
+
+    </script>
+
+  </body>
+</html>
